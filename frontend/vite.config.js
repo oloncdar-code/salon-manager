@@ -22,10 +22,23 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: './src/test/setup.js',
+    setupFiles: './src/test/setup.js', 
     coverage: {
       provider: 'v8',
-      reporter: ['text', 'json', 'html'],
+      reporter: ['text', 'json', 'html', 'lcov'],
+      exclude: [
+        '**/node_modules/**',
+        '**/dist/**',
+        '**/*.spec.js',
+        '**/*.test.js',
+        '**/main.js',
+        '**/test/**',
+        '**/*.config.*',
+        '**/__tests__/**',
+        '**/*.d.ts',
+      ],
+      reportsDirectory: './coverage',
+      all: true, 
     },
   },
 })

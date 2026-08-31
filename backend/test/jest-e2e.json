@@ -8,5 +8,18 @@
   },
   "moduleNameMapper": {
     "^src/(.*)$": "<rootDir>/src/$1"
-  }
+  },
+  "collectCoverageFrom": [
+    "src/**/*.ts",
+    "!src/**/*.module.ts",
+    "!src/main.ts",
+    "!src/**/*.dto.ts",
+    "!src/**/*.entity.ts"
+  ],
+  "coverageDirectory": "./coverage",
+  "coverageReporters": ["json", "lcov", "text", "html"],
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "/dist/"
+  ]
 }

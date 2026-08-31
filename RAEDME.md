@@ -1,3 +1,7 @@
+[![Backend CI](https://github.com/oloncdar-code/salon-manager/actions/workflows/backend.yml/badge.svg)](https://github.com/oloncdar-code/salon-manager/actions/workflows/backend.yml)
+[![Frontend CI](https://github.com/oloncdar-code/salon-manager/actions/workflows/frontend.yml/badge.svg)](https://github.com/oloncdar-code/salon-manager/actions/workflows/frontend.yml)
+[![codecov](https://codecov.io/gh/oloncdar-code/salon-manager/branch/main/graph/badge.svg)](https://codecov.io/gh/oloncdar-code/salon-manager)
+
 # Система управления записью клиентов для салонов красоты
 
 Веб-приложение для управления записью клиентов в небольших сервисных компаниях (салоны красоты, парикмахерские, массажные кабинеты, косметологические студии и др.). Позволяет клиентам записываться на услуги, мастерам – управлять своим расписанием, а администраторам – контролировать весь процесс.
