@@ -1,6 +1,6 @@
 {
   "moduleFileExtensions": ["js", "json", "ts"],
-  "rootDir": ".",
+  "rootDir": "../",
   "testEnvironment": "node",
   "testMatch": ["<rootDir>/test/**/*.e2e-spec.ts"],
   "transform": {
@@ -16,7 +16,7 @@
     "!src/**/*.dto.ts",
     "!src/**/*.entity.ts"
   ],
-  "coverageDirectory": "./coverage",
+  "coverageDirectory": "<rootDir>/coverage",
   "coverageReporters": ["json", "lcov", "text", "html"],
   "coveragePathIgnorePatterns": [
     "/node_modules/",
