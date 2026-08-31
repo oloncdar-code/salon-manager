@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: salon-postgres
+    environment:
+      POSTGRES_USER: salon_admin
+      POSTGRES_PASSWORD: salon_pass
+      POSTGRES_DB: salon_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./init-db:/docker-entrypoint-initdb.d
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
