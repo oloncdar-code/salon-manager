@@ -19,16 +19,10 @@ export default defineConfig({
       },
     },
   },
-    test: {
+  test: {
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/test/setup.js',
-    pool: 'forks',
-    poolOptions: {
-      forks: {
-        singleFork: true,
-      },
-    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html', 'lcov'],
