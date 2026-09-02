@@ -215,7 +215,7 @@ import { useMaterialsStore } from '@/stores/materials'
 
 const route = useRoute()
 const router = useRouter()
-const store = useServicesStore()
+const servicesStore = useServicesStore()
 
 const loading = ref(false)
 const isEditMode = computed(() => !!route.params.id)
@@ -236,7 +236,7 @@ const parentSearch = ref('')
 
 // Категории (услуги 1-го уровня) с учётом поиска
 const categories = computed(() => {
-  return store.list.filter(s => s.parent_id === null && s.is_active !== false)
+  return servicesStore.list.filter(s => s.parent_id === null && s.is_active !== false)
 })
 
 const filteredCategories = computed(() => {
@@ -253,7 +253,7 @@ const loadService = async () => {
   if (!isEditMode.value) return
   loading.value = true
   try {
-    const service = await store.fetchById(serviceId.value)
+    const service = await servicesStore.fetchById(serviceId.value)
     form.name = service.name
     form.shortName = service.short_name
     form.duration = service.duration
@@ -281,7 +281,7 @@ const addPrice = async () => {
     return
   }
   try {
-    await store.setPrice(serviceId.value, newPrice.value)
+    await servicesStore.setPrice(serviceId.value, newPrice.value)
     await loadService()
     newPrice.value = null
     showToast.success('Цена установлена')
@@ -307,12 +307,12 @@ const handleSubmit = async () => {
 
   try {
     if (isEditMode.value) {
-      await store.update(serviceId.value, payload)
+      await servicesStore.update(serviceId.value, payload)
     } else {
-      const created = await store.create(payload)
+      const created = await servicesStore.create(payload)
       // Если при создании указана цена, устанавливаем её
       if (newPrice.value && created.id) {
-        await store.setPrice(created.id, newPrice.value)
+        await servicesStore.setPrice(created.id, newPrice.value)
       }
     }
     router.push('/services')
